@@ -68,6 +68,7 @@
     "lodash": "~2.4.1"
   },
   "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-preset-es2015-rollup": "^3.0.0",
     "eslint": "^4.0.0",
     "eslint-config-airbnb-base": "^11.2.0",
@@ -87,8 +88,10 @@
   },
   "engines": "*",
   "scripts": {
-    "test": "node test.js",
-    "precommit": "lint-staged"
+    "build": "node scripts/build",
+    "precommit": "lint-staged",
+    "pretest": "npm build",
+    "test": "node test.js"
   },
   "lint-staged": {
     "*.js": [
