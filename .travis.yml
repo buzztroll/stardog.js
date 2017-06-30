@@ -1,13 +1,13 @@
 sudo: required
 
-# language: node_js
+language: python
 
 services:
   - docker
 
 before_install:
-- env
 - echo $LICENSE | base64 --decode > /tmp/stardog-license-key.bin
+- ls -l /tmp/stardog-license-key.bin
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD complexible-eps-docker.jfrog.io
 - docker run -v /tmp/stardog-license-key.bin:/var/opt/stardog/stardog-license-key.bin -d -it complexible-eps-docker.jfrog.io/stardog:5.0
 
